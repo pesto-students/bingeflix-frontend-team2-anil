@@ -1,0 +1,93 @@
+// *{
+//     border: 1px solid black;
+// }
+
+.container{
+    display: flex;
+    padding: 0px
+}
+
+.navbar{
+    // background-color: #FFD700;
+    color: black;
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to top,transparent 0%,rgb(0,0,0,0.3) 50% ) 3s linear;
+    transition: background 0.5s linear;
+
+    &.scrolled{
+        background : rgb(18, 160, 199);
+    }
+
+}
+
+.usericon{
+    height: 50px;
+    width: 50px;
+}
+
+.logo{
+    margin-left: 5px;
+    height: 50px;
+    width: 50px;
+}
+
+.left{
+    display: flex;
+    align-items: center;
+}
+
+.tabs{
+    margin-left: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.right{
+    margin-left: auto;
+    margin-right: 60px;
+    display: flex;
+    align-items: center;
+
+    .icon{
+        margin: 0px 15px;
+        cursor: pointer;
+    }
+
+    .profile{
+        .options{
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 1s linear,opacity 300ms;
+            span{
+                cursor: pointer;
+                padding: 10px;
+            }
+        }
+    
+        &:hover{ 
+            .options{
+                opacity: 1;
+                visibility: visible;
+                height: fit-content;
+                width: fit-content;
+                left: auto;
+                top: 40px;
+                right: 20px;
+                display: flex;
+                background-color: rgb(18, 160, 199);
+                flex-direction: column;
+                position: absolute;
+                color: black;
+                border-radius: 5px;
+            }
+        }
+        
+    }
+
+}
+
+
+

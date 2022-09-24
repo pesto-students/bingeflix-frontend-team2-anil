@@ -1,0 +1,29 @@
+.featured{
+    height: 800px;
+    display: flex;
+    background: linear-gradient(to top,transparent 0%,rgb(0,0,0,0.3) 50% ) 3s linear;
+}
+
+.options{
+    display: flex;
+    top: 600px;
+    left: 100px;
+    position: absolute;
+
+    > div{
+        cursor: pointer;
+        padding: 10px 20px 10px 20px;
+        align-items: center;
+        margin-right: 50px;
+        width: max-content;
+        height: 30px;
+        display: flex;
+        color: white;
+        background-color: black;
+        border-radius: 5px;
+        .text{
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+    }
+}
