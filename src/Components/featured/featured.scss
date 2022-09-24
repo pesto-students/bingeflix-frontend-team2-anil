@@ -2,12 +2,38 @@
     height: 800px;
     display: flex;
     background: linear-gradient(to top,transparent 0%,rgb(0,0,0,0.3) 50% ) 3s linear;
+
+    .poster{
+        background-image: url("../../images/lotrbackground.jpg");
+        min-height: 500px; 
+        width: 100%;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .movie{
+        top: 150px;
+        left: 80px;
+        position: absolute;
+        .logo{
+            position: absolute;
+            height: 300px;
+            width: 300px;
+        }
+        .movieInfo{
+            top: 310px;
+            position: absolute;
+            width: 500px;
+            color: whitesmoke;
+        }
+    }
 }
 
 .options{
     display: flex;
-    top: 600px;
-    left: 100px;
+    top: 400px;
     position: absolute;
 
     > div{
@@ -27,3 +53,4 @@
         }
     }
 }
+
