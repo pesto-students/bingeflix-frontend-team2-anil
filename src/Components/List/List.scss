@@ -1,0 +1,42 @@
+.featuredlist{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    width: 100%;
+    margin-top: 10px;
+
+    .listTitle{
+        color: white;
+        font-size: 20px;
+        font-weight: 500;
+        margin-left: 50px;
+    }
+    .wrapper{
+        margin-top: 10px;
+        display: flex;
+        position: relative;
+        .sliderArrow{
+            cursor: pointer;
+            position: absolute;
+            width: 50px;
+            height: 200px;
+            background-color: rgba(80, 55, 55, 0.53);
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            &.left{
+                left: 0;
+            }
+
+            &.right{
+                right: 0;
+            }
+        }
+
+        .container{
+            margin-left: 70px;
+            display: flex;
+            width: max-content;
+        }
+    }
+}

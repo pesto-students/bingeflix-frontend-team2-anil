@@ -1,4 +1,5 @@
 import Featured from "../../Components/featured/featured";
+import FeaturedList from "../../Components/List/List";
 import NavBar from "../../Components/navbar/NavBar";
 import "./Home.scss"
 
@@ -7,6 +8,11 @@ const Home = () => {
         <div className="home">
             <NavBar/>
             <Featured/>
+            <FeaturedList/>
+            <FeaturedList/>
+            <FeaturedList/>
+            <FeaturedList/>
+            <FeaturedList/>
         </div>
     )
 }

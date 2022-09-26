@@ -28,8 +28,8 @@ function NavBar() {
                     <Search className="icon"/>
                     <span>Profile</span>
                     <Notifications className="icon"/>
-                    <img className="usericon" src={require("../../images/user.png")} alt="User"/>
                     <div className="profile">
+                        <img className="usericon" src={require("../../images/user.png")} alt="User"/>
                         <ArrowDropDown className="dropdown"/>
                         <div className="options">
                             <span>Settings</span>

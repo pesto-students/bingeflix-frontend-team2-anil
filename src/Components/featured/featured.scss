@@ -1,7 +1,7 @@
 .featured{
-    height: 800px;
+    height: 650px;
     display: flex;
-    background: linear-gradient(to top,transparent 0%,rgb(0,0,0,0.3) 50% ) 3s linear;
+    background: linear-gradient(to bottom,transparent 0%,rgba(3, 30, 46, 0.3) 70% );
 
     .poster{
         background-image: url("../../images/lotrbackground.jpg");
@@ -31,7 +31,7 @@
     }
 }
 
-.options{
+.buttons{
     display: flex;
     top: 400px;
     position: absolute;

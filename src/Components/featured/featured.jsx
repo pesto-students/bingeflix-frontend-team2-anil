@@ -10,7 +10,7 @@ const Featured = () => {
                 <div className="movieInfo">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores temporibus id laboriosam repellendus unde doloremque quasi? Numquam fuga quae accusantium adipisci similique ipsum autem, nesciunt eligendi doloremque possimus consequuntur quidem.
                 </div>
-                <div className="options">
+                <div className="buttons">
                     <div>
                         <PlayArrowOutlined className="icon" />
                         <span className="text">Play</span>
