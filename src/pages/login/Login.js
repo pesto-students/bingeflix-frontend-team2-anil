@@ -5,7 +5,8 @@ export default function Login() {
     <div className="login">
       <div className="top">
         <div className="wrapper">
-          <img src='https://i.imgur.com/Ms4pTXT.png' className='logo' />
+          <span className='logoText'>B I N G E F L I X</span>
+          {/* <img src='https://i.imgur.com/Ms4pTXT.png' className='logo' /> */}
         </div>
       </div>
       <div className="container">

@@ -16,9 +16,17 @@
             align-items: center;
             justify-content: space-between;
         }
-        .logo{
+        .logoText{
             height: 40px;
+            font-weight: bold;
+            color: #FFD700;
+            font-size: 35px;
+            // margin-left: 600px;
+            margin:auto
         }
+        // .logo{
+        //     height: 40px;
+        // }
         .loginButton {
             background-color: purple;
             border: none;
