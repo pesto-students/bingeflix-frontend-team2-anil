@@ -11,8 +11,6 @@ const Home = () => {
             <FeaturedList/>
             <FeaturedList/>
             <FeaturedList/>
-            <FeaturedList/>
-            <FeaturedList/>
         </div>
     )
 }

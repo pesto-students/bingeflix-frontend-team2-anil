@@ -17,19 +17,47 @@ const Register = () => {
 
   const handleStart = () => {
     setEmail(emailRef.current.value);
-  };
+  };    
+
+  const handleOnChange=(e)=>{
+    if(e.target.placeholder === 'username'){
+      setUsername(e.target.value)
+    }
+    else{
+      setPassword(e.target.value)
+    }
+    // console.log(e.target.value)
+    // setUsername(e.target.value)
+  }
 
   const handleFinish = async(e) => {
     e.preventDefault();
-    setPassword(passwordRef.current.value);
-    setUsername(usernameRef.current.value);
+    // setPassword(passwordRef.current.value);
+    // setUsername(usernameRef.current.value);
     try {
-      await axios.post("auth/register", { email,username, password });
-      history.push("/login");
+
+      const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          email:email,
+          username:username,
+          password:password })
+      };
+
+      await fetch("/auth/register", requestOptions)
+       .then((res)=>{
+        console.log(res)
+        history.push("/login");
+      })
+       .catch((err)=>{
+        console.log(err)
+      })
+
     } catch (err) {
       console.log(err)
     }
-  };
+  };  
 
   return (
     <div className='register'>
@@ -55,8 +83,8 @@ const Register = () => {
             </div>
             ) : (
             <form className="input">
-                <input type="username" placeholder="username" ref={usernameRef} />
-                <input type="password" placeholder="password" ref={passwordRef} />
+                <input type="username" placeholder="username" onChange={handleOnChange} />
+                <input type="password" placeholder="password" onChange={handleOnChange} />
                 <button className="registerButton" onClick={handleFinish}>
                 Start
                 </button>

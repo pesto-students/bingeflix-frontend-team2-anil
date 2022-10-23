@@ -17,7 +17,7 @@ function NavBar() {
         <div className={isScrolled ? "navbar scrolled" : "navbar"}>
             <div className="container">
                 <div className="left">
-                    <img className="logo" src={require("../../images/logo.png")} alt="BingeFlix"/>
+                    <img className="logo" src={require("../../images/logo_1.png")} alt="BingeFlix"/>
                     <span className="tabs">Home</span>
                     <span className="tabs">Series</span>
                     <span className="tabs">Movies</span>
