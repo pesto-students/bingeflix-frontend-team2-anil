@@ -1,6 +1,7 @@
 import "./navbar.scss"
 import { Search,ArrowDropDown,Notifications } from "@material-ui/icons"
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function NavBar() {
 
@@ -18,9 +19,15 @@ function NavBar() {
             <div className="container">
                 <div className="left">
                     <img className="logo" src={require("../../images/logo_1.png")} alt="BingeFlix"/>
-                    <span className="tabs">Home</span>
-                    <span className="tabs">Series</span>
-                    <span className="tabs">Movies</span>
+                    <Link to='/' className="link">
+                        <span className="tabs">Home</span>
+                    </Link>
+                    <Link to='/series' className="link">
+                        <span className="tabs">Series</span>
+                    </Link>
+                    <Link to='/movies' className="link">
+                        <span className="tabs">Movies</span>
+                    </Link>
                     <span className="tabs">New and Popular</span>
                     <span className="tabs">My Collections</span>
                 </div>

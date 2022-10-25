@@ -10,41 +10,42 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
+import Watch from './pages/watch/Watch';
 
 function App() {
-  const { user } = useContext(AuthContext);
+  // const { user } = useContext(AuthContext);
+  const user = true;
 
   return (
     <div>
-      {/* <Router>
-        <Switch>
-          <Route exact path="/">
-            {user ? <Home /> : <Redirect to="/register" />}
-          </Route>
-          <Route path="/register">
-            {!user ? <Register /> : <Redirect to="/" />}
-          </Route>
-          <Route path="/login">
-            {!user ? <Login /> : <Redirect to="/" />}
-          </Route> */}
-          {/* {user && (
+      <Router>
+         <Switch>
+           <Route exact path="/">
+               {user ? <Home/> : <Redirect to='/register'/>}
+           </Route>
+           <Route path="/login">
+              {!user ? <Login/> : <Redirect to='/'/>}              
+           </Route>
+           <Route path="/register">
+              {!user ? <Register/> : <Redirect to='/'/>}              
+           </Route>
+           {user && (
             <>
               <Route path="/movies">
-                <Home type="movie" />
+                <Home type={'movies'}/>
               </Route>
               <Route path="/series">
-                <Home type="series" />
+                <Home type={'series'}/>
               </Route>
               <Route path="/watch">
-                <Watch />
+                <Watch/>
               </Route>
             </>
-          )} */}
-        {/* </Switch>
-      </Router> */}
-      {/* <Register/> */}
-      <Home/>
-      {/* <Login/> */}
+           )}
+        </Switch>
+      </Router>
+      {/* <Home/>  */}
+      {/* // <Login/> */}
     </div>
   );
 }

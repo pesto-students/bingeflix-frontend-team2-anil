@@ -63,7 +63,7 @@ const Register = () => {
     <div className='register'>
         <div className='top'>
             <div className='wrapper'>
-                {/* <img src='https://i.imgur.com/UM6L4qw.png' className='logo'/> */}
+                <img src='https://i.imgur.com/UM6L4qw.png' className='logo'/>
                 <span className='logoText'>B I N G E F L I X</span>
                 <button className='loginButton'> Sign In</button>
             </div>
