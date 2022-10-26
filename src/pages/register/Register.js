@@ -32,28 +32,34 @@ const Register = () => {
 
   const handleFinish = async(e) => {
     e.preventDefault();
-    // setPassword(passwordRef.current.value);
-    // setUsername(usernameRef.current.value);
+    setPassword(passwordRef.current.value);
+    setUsername(usernameRef.current.value);
+    // try {
+
+    //   const requestOptions = {
+    //     method: 'POST',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     body: JSON.stringify({ 
+    //       email:email,
+    //       username:username,
+    //       password:password })
+    //   };
+
+    //   await fetch("/auth/register", requestOptions)
+    //    .then((res)=>{
+    //     console.log(res)
+    //     history.push("/login");
+    //   })
+    //    .catch((err)=>{
+    //     console.log(err)
+    //   })
+
+    // } catch (err) {
+    //   console.log(err)
+    // }
     try {
-
-      const requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-          email:email,
-          username:username,
-          password:password })
-      };
-
-      await fetch("/auth/register", requestOptions)
-       .then((res)=>{
-        console.log(res)
-        history.push("/login");
-      })
-       .catch((err)=>{
-        console.log(err)
-      })
-
+      await axios.post("auth/register", { email,username, password });
+      history.push("/login");
     } catch (err) {
       console.log(err)
     }
@@ -83,8 +89,8 @@ const Register = () => {
             </div>
             ) : (
             <form className="input">
-                <input type="username" placeholder="username" onChange={handleOnChange} />
-                <input type="password" placeholder="password" onChange={handleOnChange} />
+                <input type="username" placeholder="username" onChange={handleOnChange} ref={usernameRef} />
+                <input type="password" placeholder="password" onChange={handleOnChange} ref={passwordRef}/>
                 <button className="registerButton" onClick={handleFinish}>
                 Start
                 </button>

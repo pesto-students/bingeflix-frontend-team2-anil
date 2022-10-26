@@ -13,15 +13,14 @@ import {
 import Watch from './pages/watch/Watch';
 
 function App() {
-  // const { user } = useContext(AuthContext);
-  const user = true;
+  const { user } = useContext(AuthContext);
 
   return (
     <div>
       <Router>
          <Switch>
            <Route exact path="/">
-               {user ? <Home/> : <Redirect to='/register'/>}
+               {user ? <Home type={'movies'}/> : <Redirect to='/register'/>}
            </Route>
            <Route path="/login">
               {!user ? <Login/> : <Redirect to='/'/>}              
