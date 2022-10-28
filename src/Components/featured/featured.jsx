@@ -1,7 +1,27 @@
 import "./featured.scss"
 import { PlayArrow,InfoOutlined } from "@material-ui/icons"
+import axios from "axios"
+import { useState,useEffect } from "react"
  
 const Featured = ({type}) => {
+    const [content,setContent] = useState({})
+    useEffect(() => {
+      const getRandomContent = async () => {
+        try{
+            const res = await axios.get("/movies/random?type=${type}", {
+                headers: {
+                  token:
+                  "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken,
+                },
+              });
+            setContent(res.data[0])
+        }catch (err){
+            console.log(err);
+        }
+      }
+
+    }, [type])
+    
     return (
         <div className="featured">
             {type && (
@@ -26,14 +46,16 @@ const Featured = ({type}) => {
                 </div>
             )}
             <img 
-               src={require("../../images/lotrbackground.jpg")}
+            //    src={require("../../images/lotrbackground.jpg")}
+            src={content.img}
                alt=""/>
             <div className="info">
                 <img 
-                   src={require('../../images/lordoftherings2.png')}
+                //    src={require('../../images/lordoftherings2.png')}
+                src={content.imgTitle}
                    alt=''/>
                 <span className="desc">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores temporibus id laboriosam repellendus unde doloremque quasi? Numquam fuga quae accusantium adipisci similique ipsum autem, nesciunt eligendi doloremque possimus consequuntur quidem.      
+                    {content.desc}    
                 </span>
                 <div className="buttons">
                     <button className="play">

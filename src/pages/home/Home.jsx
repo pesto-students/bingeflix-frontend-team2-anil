@@ -5,6 +5,7 @@ import "./Home.scss"
 // import List from "../../components/list/List";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { List } from "@material-ui/core";
 
 const Home = ({type}) => {
 
@@ -17,30 +18,29 @@ const Home = ({type}) => {
             const res = await axios.get(
               `lists${type ? "?type=" + type : ""}${
                 genre ? "&genre=" + genre : ""
-              }`)
-            console.log(res)
-            //   {
-            //     headers: {
-            //       token:
-            //       "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken,
-            //     },
-            }
-            // setLists(res.data);
-           catch (err) {
+              }`,
+              {
+                headers: {
+                  token:
+                  "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken,
+                },
+              });
+            setLists(res.data);
+            }catch (err) {
             console.log(err);
           }
         getRandomLists();
       }
-    },[]);
+    },[type, genre]);
 
 
     return (
         <div className="home">
             <NavBar/>
-            <Featured />
-            <FeaturedList/>
-            <FeaturedList/>
-            <FeaturedList/>
+            <Featured type={type}/>
+            {lists.map(list => {
+              <List list = {list}/>
+            })}
         </div>
     )
 }
