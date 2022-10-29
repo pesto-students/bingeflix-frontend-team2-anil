@@ -12,6 +12,9 @@ const Home = ({type}) => {
     const [genre, setGenre] = useState(null);
 
     useEffect(() => {
+        console.log('Hello')
+        console.log(type)
+        console.log(genre)
         const getRandomLists = async () => {    
           try {
             const res = await axios.get(
@@ -19,19 +22,13 @@ const Home = ({type}) => {
                 genre ? "&genre=" + genre : ""
               }`)
             console.log(res)
-            //   {
-            //     headers: {
-            //       token:
-            //       "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken,
-            //     },
-            }
-            // setLists(res.data);
+          }
            catch (err) {
             console.log(err);
           }
-        getRandomLists();
       }
-    },[]);
+      getRandomLists();
+    },[type,genre]);
 
 
     return (
