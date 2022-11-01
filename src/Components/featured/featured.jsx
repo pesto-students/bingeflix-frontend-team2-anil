@@ -1,7 +1,30 @@
 import "./featured.scss"
 import { PlayArrow,InfoOutlined } from "@material-ui/icons"
+import { useEffect, useState } from "react";
+import axios from "axios";
  
 const Featured = ({type}) => {
+
+    const [content, setContent] = useState({});
+
+    useEffect(() => {
+        const getRandomContent = async () => {
+          try {
+            const res = await axios.get(`/movies/random?type=${type}`, {
+              headers: {
+                token:
+                  "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken,
+              },
+            });
+            setContent(res.data[0]);
+          } catch (err) {
+            console.log(err);
+          }
+        };
+        getRandomContent();
+    }, [type]);
+    
+
     return (
         <div className="featured">
             {type && (
@@ -26,15 +49,13 @@ const Featured = ({type}) => {
                 </div>
             )}
             <img 
-               src={require("../../images/lotrbackground.jpg")}
+               src={content.img}
                alt=""/>
             <div className="info">
                 <img 
-                   src={require('../../images/lordoftherings2.png')}
+                   src={content.imgTitle}
                    alt=''/>
-                <span className="desc">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores temporibus id laboriosam repellendus unde doloremque quasi? Numquam fuga quae accusantium adipisci similique ipsum autem, nesciunt eligendi doloremque possimus consequuntur quidem.      
-                </span>
+                <span className="desc">{content.desc}</span>
                 <div className="buttons">
                     <button className="play">
                         <PlayArrow />
@@ -46,22 +67,6 @@ const Featured = ({type}) => {
                     </button>
                 </div>
             </div>
-               {/* <div className="poster"></div>
-            <div className="movie">
-                <img className="logo" src={require("../../images/lordoftherings2.png")}/>
-                <div className="movieInfo">
-                </div>
-                <div className="buttons">
-                    <div>
-                        <PlayArrowOutlined className="icon" />
-                        <span className="text">Play</span>
-                    </div>
-                    <div>
-                        <InfoOutlined className="icon" />
-                        <span className="text">More Info</span>
-                    </div>
-                </div>
-            </div> */}
         </div>
     )
 }

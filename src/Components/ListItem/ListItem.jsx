@@ -5,51 +5,69 @@ import {
   ThumbUpAltOutlined,
   ThumbDownOutlined,
 } from "@material-ui/icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
-const ListItem = ({index}) => {
+const ListItem = ({index,item}) => {
 
   const [isHovered, setIsHovered] = useState(false);
+  const [movie, setMovie] = useState({});
+
+  useEffect(() => {
+    const getMovie = async () => {
+      try {
+        const res = await axios.get("/movies/find/" + item, {
+          headers: {
+            token:
+            "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken,
+          },
+        });
+        setMovie(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getMovie();
+  }, [item]);
+
   
 
   return (
-    <div className="listItem"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      style={{ left: isHovered && index * 225 - 50 + index * 2.5 }}
-      >
+    <Link to={{ pathname: "/watch", movie: movie }}>
+      <div className="listItem"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        style={{ left: isHovered && index * 225 - 50 + index * 2.5 }}
+        >
 
-      <img src={require("../../images/logo_1.png")} alt="" />
+        <img src={movie?.imgSm} alt="" />
 
-      {isHovered && (
-          <>
-            <video src={require('../../images/sample-mp4-file-small.mp4')} autoPlay={true} loop />
+        {isHovered && (
+            <>
+              <video src={movie.trailer} autoPlay={true} loop />
 
-            <div className="itemInfo">
+              <div className="itemInfo">
 
-              <div className="icons">
-                <PlayArrow className="icon" />
-                <Add className="icon" />
-                <ThumbUpAltOutlined className="icon" />
-                <ThumbDownOutlined className="icon" />
+                <div className="icons">
+                  <PlayArrow className="icon" />
+                  <Add className="icon" />
+                  <ThumbUpAltOutlined className="icon" />
+                  <ThumbDownOutlined className="icon" />
+                </div>
+
+                <div className="itemInfoTop">
+                  <span>{movie.duration}</span>
+                  <span className="limit">+{movie.limit}</span>
+                  <span>{movie.year}</span>
+                </div>
+
+                <div className="desc">{movie.desc}</div>
+                <div className="genre">{movie.genre}</div>
               </div>
-
-              <div className="itemInfoTop">
-                <span>1hr 32 mins</span>
-                <span className="limit">+16</span>
-                <span>2000</span>
-              </div>
-
-              <div className="desc">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Nunc ullamcorper tortor ut erat bibendum consectetur. 
-              </div>
-
-              <div className="genre">Action</div>
-
-            </div>
-          </>)}
-    </div>
+            </>)}
+      </div>
+    </Link>
   )
 }
 
