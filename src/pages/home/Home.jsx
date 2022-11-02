@@ -39,7 +39,7 @@ const Home = ({type}) => {
     return (
         <div className="home">
             <NavBar/>
-            <Featured type={type}/>
+            <Featured type={type} setGenre={setGenre}/>
             {lists.map((list)=>{
               return <List list={list}/>
             })}
