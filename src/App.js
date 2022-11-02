@@ -8,7 +8,7 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-import UserList from "./pages/userList/UserList";
+// import UserList from "./pages/userList/UserList";
 import User from "./pages/user/User";
 import NewUser from "./pages/newUser/NewUser";
 import { AuthContext } from "./context/authContext/AuthContext";
@@ -24,62 +24,60 @@ import Register from './pages/register/Register';
 
 function App() {
   const { user } = useContext(AuthContext);
-  console.log(user)
 
   return (
+    // <Router>
+    //   <Switch>
+
+    //     <Route exact path='/'>
+    //     {user?
+    //     <>
+    //       {user && (
+    //         <>
+    //           <Topbar />
+    //           <div className="container">
+    //             <Sidebar />
+    //             <Route exact path="/">
+    //               <Home />
+    //             </Route>
+    //             <Route path="/users">
+    //               <UserList />
+    //             </Route>
+    //             <Route path="/user/:userId">
+    //               <User />
+    //             </Route>
+    //             <Route path="/newUser">
+    //               <NewUser />
+    //             </Route>
+    //             <Route path="/movies">
+    //               <MovieList />
+    //             </Route>
+    //             <Route path="/movie/:movieId">
+    //               <Movie />
+    //             </Route>
+    //             <Route path="/newMovie">
+    //               <NewMovie />
+    //             </Route>
+    //             <Route path="/lists">
+    //               <ListList />
+    //             </Route>
+    //             <Route path="/list/:listId">
+    //               <List />
+    //             </Route>
+    //             <Route path="/newlist">
+    //               <NewList /> 
+    //             </Route>
+    //           </div>
+    //         </>
+    //       )}
+    //     </>:<Login/>}
+    //     </Route>      
+    //   </Switch>
+    // </Router>
     <Router>
       <Switch>
-
-        <Route exact path='/'>
-        {user?
-        <>
-          {user && (
-            <>
-              <Topbar />
-              <div className="container">
-                <Sidebar />
-                <Route exact path="/">
-                  <Home />
-                </Route>
-                <Route path="/users">
-                  <UserList />
-                </Route>
-                <Route path="/user/:userId">
-                  <User />
-                </Route>
-                <Route path="/newUser">
-                  <NewUser />
-                </Route>
-                <Route path="/movies">
-                  <MovieList />
-                </Route>
-                <Route path="/movie/:movieId">
-                  <Movie />
-                </Route>
-                <Route path="/newMovie">
-                  <NewMovie />
-                </Route>
-                <Route path="/lists">
-                  <ListList />
-                </Route>
-                <Route path="/list/:listId">
-                  <List />
-                </Route>
-                <Route path="/newlist">
-                  <NewList /> 
-                </Route>
-              </div>
-            </>
-          )}
-        </>:<Login/>}
-          
-        </Route>
-
-        {/* <Route path="/login">
-          {user ? <Redirect to="/" /> : <Login />}
-        </Route> */}
-
-        {/* {user && (
+        <Route path="/login">{user ? <Redirect to="/" /> : <Login />}</Route>
+        {user && (
           <>
             <Topbar />
             <div className="container">
@@ -87,9 +85,9 @@ function App() {
               <Route exact path="/">
                 <Home />
               </Route>
-              <Route path="/users">
+              {/* <Route path="/users">
                 <UserList />
-              </Route>
+              </Route> */}
               <Route path="/user/:userId">
                 <User />
               </Route>
@@ -112,13 +110,11 @@ function App() {
                 <List />
               </Route>
               <Route path="/newlist">
-                <NewList /> 
+                <NewList />
               </Route>
             </div>
           </>
-        )} */}
-
-      
+        )}
       </Switch>
     </Router>
   );
