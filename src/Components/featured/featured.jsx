@@ -3,7 +3,7 @@ import { PlayArrow,InfoOutlined } from "@material-ui/icons"
 import { useEffect, useState } from "react";
 import axios from "axios";
  
-const Featured = ({type}) => {
+const Featured = ({type,setGenre}) => {
 
     const [content, setContent] = useState({});
 
@@ -30,7 +30,7 @@ const Featured = ({type}) => {
             {type && (
                 <div className="category">
                     <span>{type === "movies"?"Movies":"Series"}</span>
-                    <select name="genre" id="genre">
+                    <select name="genre" id="genre" onChange={(e)=> setGenre(e.target.value)}>
                         <option>Genre</option>
                         <option value="adventure">Adventure</option>
                         <option value="comedy">Comedy</option>
@@ -52,9 +52,11 @@ const Featured = ({type}) => {
                src={content.img}
                alt=""/>
             <div className="info">
-                <img 
+                {/* <img 
                    src={content.imgTitle}
-                   alt=''/>
+                   alt=''
+                   className="imgTitle"/> */}
+                <h1>{content.title}</h1>
                 <span className="desc">{content.desc}</span>
                 <div className="buttons">
                     <button className="play">
