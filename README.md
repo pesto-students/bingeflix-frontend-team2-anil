@@ -49,11 +49,8 @@ Test Credentials:
 
 We attempted to employ an entirely contemporary tech stack while experimenting with some novel, unexplored technologies. As a result, a quick, effective, and easily extensible web application was created, which should make it very future-proof for the next few years. Here's what We used:
 
-- [Axios](https://axios-http.com/docs/intro)
-- [NodeJs](https://react-query.tanstack.com/)
-- [JWT](https://jwt.io/)
-- [Firebase](https://firebase.google.com/?gclsrc=ds&gclsrc=ds&gclid=CMG90LXdkfsCFcjM1AodKEAO1w)
-- [Express](https://expressjs.com/)
+- [React](https://reactjs.org/)
+- [Redux toolkit](https://redux-toolkit.js.org/)
 
 <br/>
 
