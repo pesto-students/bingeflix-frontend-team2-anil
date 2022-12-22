@@ -1,7 +1,7 @@
 {
   "name": "bingeflix",
   "version": "0.1.0",
-  "proxy": "http://localhost:8080/api/",
+  "proxy": "https://bingeflix.onrender.com/api",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.12.4",
